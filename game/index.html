@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Runeforge Duel — a card duel of the four sigils</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <!-- Opponent zone -->
+  <section id="foe-zone" class="zone">
+    <div class="hero" id="foe-hero">
+      <div class="portrait foe-portrait" id="foe-portrait" title="Vex, the Cindersmith"></div>
+      <div class="hero-info">
+        <div class="hero-name">VEX, THE CINDERSMITH <span class="hero-tag">RIVAL FORGER</span></div>
+        <div class="hp-row">
+          <div class="hp-bar"><div class="hp-fill" id="foe-hp-fill"></div><span class="hp-text" id="foe-hp-text">30</span></div>
+          <div class="armor" id="foe-armor" hidden>ARMOR <span id="foe-armor-n">0</span></div>
+        </div>
+        <div class="mana-row"><span class="mana-label">MANA</span><span class="crystals" id="foe-mana"></span><span class="deck-count" id="foe-deck">DECK 30</span></div>
+      </div>
+      <div class="score-box"><span class="score-label">SCORE</span><span class="score-n" id="foe-score">0</span></div>
+    </div>
+    <div class="hand foe-hand" id="foe-hand" aria-label="Opponent hand"></div>
+  </section>
+
+  <!-- Table -->
+  <section id="table">
+    <div class="table-row" id="foe-table" aria-label="Opponent table"></div>
+    <div id="midline">
+      <div id="banner">RUNEFORGE DUEL</div>
+      <div id="log" aria-live="polite"></div>
+      <div id="hint">Click a card to play it · Click END TURN to attack</div>
+    </div>
+    <div class="table-row" id="you-table" aria-label="Your table"></div>
+  </section>
+
+  <!-- Player zone -->
+  <section id="you-zone" class="zone">
+    <div class="hand you-hand" id="you-hand" aria-label="Your hand"></div>
+    <div class="hero" id="you-hero">
+      <div class="portrait you-portrait" id="you-portrait" title="You, the Runeforger"></div>
+      <div class="hero-info">
+        <div class="hero-name">YOU, THE RUNEFORGER <span class="hero-tag">CHALLENGER</span></div>
+        <div class="hp-row">
+          <div class="hp-bar"><div class="hp-fill you" id="you-hp-fill"></div><span class="hp-text" id="you-hp-text">30</span></div>
+          <div class="armor" id="you-armor" hidden>ARMOR <span id="you-armor-n">0</span></div>
+        </div>
+        <div class="mana-row"><span class="mana-label">MANA</span><span class="crystals" id="you-mana"></span><span class="deck-count" id="you-deck">DECK 30</span></div>
+      </div>
+      <div class="controls">
+        <div class="score-box"><span class="score-label">SCORE</span><span class="score-n" id="you-score">0</span></div>
+        <button id="end-turn" type="button">END TURN ⏎</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Title overlay -->
+  <div class="overlay" id="title-screen">
+    <div class="panel title-panel">
+      <div class="sigil-row" id="title-sigils"></div>
+      <h1>RUNEFORGE<br>DUEL</h1>
+      <p class="tagline">A card duel of the four sigils — forge your hand, break the rival.</p>
+      <div class="howto">
+        <div><b>1 · PLAY</b> Click a card to spend mana and forge it onto your row.</div>
+        <div><b>2 · CLASH</b> END TURN passes to Vex — then both rows clash at once: creatures trade blows, lone ones hit the rival hero.</div>
+        <div><b>3 · WIN</b> Reduce Vex to 0 life. Spells bolt, mend, draw, ward, freeze and blast.</div>
+        <div><b>KEYS</b> 1–5 play a card · Space / Enter end turn · R restart · M mute</div>
+      </div>
+      <button id="play-btn" type="button">▶ START THE DUEL</button>
+      <p class="best" id="best-line">Best score: —</p>
+    </div>
+  </div>
+
+  <!-- End overlays -->
+  <div class="overlay" id="end-screen" hidden>
+    <div class="panel end-panel">
+      <h1 id="end-title">VICTORY!</h1>
+      <p id="end-sub">Vex's forge is cold. The four sigils are yours.</p>
+      <div class="end-stats" id="end-stats"></div>
+      <button id="again-btn" type="button">PLAY AGAIN (R)</button>
+      <p class="best" id="end-best">Best score: —</p>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
